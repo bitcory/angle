@@ -153,14 +153,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ cameraState, onUpload, onPrese
         {/* Upload Box */}
         <div
           onClick={() => fileInputRef.current?.click()}
-          className="w-full aspect-[3/4] mb-6 md:mb-8 rounded-lg border border-dashed border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 transition-colors flex flex-col items-center justify-center cursor-pointer relative overflow-hidden group mt-8 md:mt-0"
+          className="w-full min-h-[180px] md:min-h-[220px] md:aspect-[3/4] mb-6 md:mb-8 rounded-xl border-2 border-dashed border-zinc-600 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-500 transition-all flex flex-col items-center justify-center cursor-pointer relative overflow-hidden group mt-10 md:mt-0"
         >
           {hasImage ? (
              <div className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-30" style={{ backgroundImage: 'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)' }} />
           ) : null}
-          <div className="z-10 flex flex-col items-center text-zinc-500 group-hover:text-zinc-300">
-            <Upload size={20} className="mb-2" />
-            <span className="text-xs">이미지 업로드</span>
+          <div className="z-10 flex flex-col items-center text-zinc-400 group-hover:text-zinc-200">
+            <Upload size={28} className="mb-3" />
+            <span className="text-sm font-medium">이미지 업로드</span>
+            <span className="text-xs text-zinc-500 mt-1">탭하여 선택</span>
           </div>
           <input type="file" ref={fileInputRef} onChange={onUpload} className="hidden" accept="image/*" />
         </div>
