@@ -1,0 +1,5 @@
+{
+  "name": "AI Angle Tracker",
+  "description": "A 3D visualization tool to track camera angles and generate precise AI image prompts based on spatial referencing.",
+  "requestFramePermissions": []
+}
