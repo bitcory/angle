@@ -38,6 +38,8 @@ const App: React.FC = () => {
           polar: Math.PI / 2,
           distance: 9
         });
+        // Close sidebar on mobile after upload
+        setSidebarOpen(false);
       };
       reader.readAsDataURL(file);
     }
