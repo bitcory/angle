@@ -3,6 +3,7 @@ import { Sidebar } from './components/Sidebar';
 import { Viewer3D } from './components/Viewer3D';
 import { TopBar } from './components/TopBar';
 import { CameraState, PromptParts } from './types';
+import { RotateCcw } from 'lucide-react';
 
 const App: React.FC = () => {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
@@ -70,6 +71,22 @@ const App: React.FC = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 relative h-full w-full">
+        {/* Refresh Button - Top Right */}
+        <button
+          onClick={() => {
+            setImageSrc(null);
+            setTargetCamera({
+              azimuth: 0,
+              polar: Math.PI / 2,
+              distance: 9
+            });
+          }}
+          className="fixed top-4 right-4 z-50 p-3 rounded-full bg-zinc-900/90 backdrop-blur-md border border-zinc-700 shadow-lg hover:bg-zinc-800 transition-all active:scale-95"
+          title="새로고침"
+        >
+          <RotateCcw size={20} className="text-zinc-300" />
+        </button>
+
         {/* 3D Scene */}
         <Viewer3D
           imageSrc={imageSrc}
